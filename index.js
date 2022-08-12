@@ -8,6 +8,9 @@ let product = {
     },
     totalBill(){
         return this.price*this.amount;
+    },
+    set pprice(p){
+        this.price=0.9*p;
     }
 }
 
@@ -27,3 +30,9 @@ function set(){
 set();
 product.display()
 console.log(product.totalBill());
+
+product.pprice = 10;
+console.log(product.totalBill());
+
+
+
