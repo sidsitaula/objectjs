@@ -9,3 +9,17 @@ let product = {
 }
 
 product.display()
+
+function set(){
+    for(key in product){
+        if(key==='name'){
+            product.name="Bottle";
+        }
+        else if(key=='madeIn'){
+            product.madeIn="China"
+        }
+    }
+}
+
+set();
+product.display()
