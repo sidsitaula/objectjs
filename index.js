@@ -5,6 +5,9 @@ let product = {
     madeIn:"USA",
     display(){
         console.log(`Name: ${this.name}`)
+    },
+    totalBill(){
+        return this.price*this.amount;
     }
 }
 
@@ -23,3 +26,4 @@ function set(){
 
 set();
 product.display()
+console.log(product.totalBill());
