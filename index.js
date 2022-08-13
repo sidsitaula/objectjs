@@ -46,3 +46,27 @@ function SquareSum(num1, num2, num3){
 
 const sample = new SquareSum(2,3,4);
 console.log(sample.squaresum())
+
+function Calculator(num1, num2){
+    this.num1 = num1;
+    this.num2 = num2;
+
+    this.add = () => {
+        return this.num1+this.num2;
+    }
+    this.subtract = () => {
+        return this.num1-this.num2;
+    }
+    this.multiply = () => {
+        return this.num1*this.num2;
+    }
+    this.divide = () => {
+        return this.num1/this.num2;
+    }
+
+}
+var obj = new Calculator(5,10)
+console.log(obj.add())
+console.log(obj.subtract())
+console.log(obj.multiply())
+console.log(obj.divide())
