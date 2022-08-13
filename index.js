@@ -70,3 +70,26 @@ console.log(obj.add())
 console.log(obj.subtract())
 console.log(obj.multiply())
 console.log(obj.divide())
+
+
+function Student(marks1, marks2) {
+    let _marks1 = marks1;
+    let _marks2 = marks2;
+
+    this.getMarks = function(num){
+        if(num==1){
+            return _marks1;
+        } 
+        else if(num==2){
+            return _marks2;
+        }
+    }
+    this.getTotal = function(){
+        return _marks1+_marks2;
+    }
+}
+
+let Sid = new Student(90,95);
+console.log(Sid.getMarks(1))
+console.log(Sid.getTotal())
+
