@@ -93,49 +93,96 @@
 // console.log(Sid.getMarks(1))
 // console.log(Sid.getTotal())
 
+// class Product {
+//     constructor(name, price, amount, madeIn){
+//         var _name=name;
+//         var _price=price;
+//         var _amount = amount;
+//         var _madeIn=madeIn;
+
+//         this.getName=()=>{
+//             console.log(_name);
+//         }
+//         this.getPrice=()=>{
+//             console.log(_price);
+//         }
+//         this.getAmount=()=>{
+//             console.log(_amount);
+//         }
+//         this.getMadeIn=()=>{
+//             console.log(_madeIn);
+//         }
+//         this.setAmount=(num)=>{
+//             _amount=num;
+//         }
+//         this.canSell=(num)=>{
+//             _amount<num?console.log('Cannot Sell'):console.log('Can Sell');
+//         }
+//         this.sell=(num)=>{
+//             if(_amount<num){
+//                 _amount+=num*2;
+
+//             }
+//             else{
+//                 _amount-=num;
+//             }
+//             console.log(_amount)
+//         }
+
+//     }
+// }
+// var product = new Product('Butter',50,10,'USA')
+// product.getName()       
+// product.getPrice()  
+// product.getAmount() 
+// product.getMadeIn() 
+// product.canSell(9)  
+// product.sell(15)    
+// product.sell(8)
+
 class Product {
-    constructor(name, price, amount, madeIn){
-        var _name=name;
-        var _price=price;
-        var _amount = amount;
-        var _madeIn=madeIn;
+    constructor(name, price, amount, madeIn, expiryDate, brand){
+        this.name=name;
+        this.price=price;
+        this.amount=amount;
+        this.madeIn=madeIn;
+        this.expiryDate=expiryDate;
+        this.brand=brand;
+    }
+    static checkExpiry(product1, product2){
+        let today = new Date()
+        let d1 = today - product1.expiryDate;
+        let d2 = today - product2.expiryDate;
+        let b1=d1>0;
+        let b2=d2>0;
+        if(b1 && !b2){
+            console.log(product1.brand)
+        }
+        else if(!b1 && b2){
+            console.log(product2.brand)
 
-        this.getName=()=>{
-            console.log(_name);
         }
-        this.getPrice=()=>{
-            console.log(_price);
+        else if(!b1 && b2){
+            console.log(product2.brand)
         }
-        this.getAmount=()=>{
-            console.log(_amount);
-        }
-        this.getMadeIn=()=>{
-            console.log(_madeIn);
-        }
-        this.setAmount=(num)=>{
-            _amount=num;
-        }
-        this.canSell=(num)=>{
-            _amount<num?console.log('Cannot Sell'):console.log('Can Sell');
-        }
-        this.sell=(num)=>{
-            if(_amount<num){
-                _amount+=num*2;
+        else if(b1 && b2){
+            if(d1>d2){
+                console.log(product1.brand)
 
             }
-            else{
-                _amount-=num;
-            }
-            console.log(_amount)
-        }
+            else if(d1<d2){
+                console.log(product2.brand)
 
+            }
+            else if(d1==d2){
+                console.log(product1.brand, product2.brand)
+
+            }
+        }
+        else{
+            console.log('neither')
+        }
     }
 }
-var product = new Product('Butter',50,10,'USA')
-product.getName()       
-product.getPrice()  
-product.getAmount() 
-product.getMadeIn() 
-product.canSell(9)  
-product.sell(15)    
-product.sell(8)
+
+const p1 = newProduct()
