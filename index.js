@@ -34,62 +34,108 @@
 // product.pprice = 10;
 // console.log(product.totalBill());
 
-function SquareSum(num1, num2, num3){
-    this.num1 = num1;
-    this.num2 = num2;
-    this.num3 = num3;
+// function SquareSum(num1, num2, num3){
+//     this.num1 = num1;
+//     this.num2 = num2;
+//     this.num3 = num3;
 
-    this.squaresum = () =>{
-        return this.num1**2 + this.num2**2 + this.num3**2
-    }
-}
+//     this.squaresum = () =>{
+//         return this.num1**2 + this.num2**2 + this.num3**2
+//     }
+// }
 
-const sample = new SquareSum(2,3,4);
-console.log(sample.squaresum())
+// const sample = new SquareSum(2,3,4);
+// console.log(sample.squaresum())
 
-function Calculator(num1, num2){
-    this.num1 = num1;
-    this.num2 = num2;
+// function Calculator(num1, num2){
+//     this.num1 = num1;
+//     this.num2 = num2;
 
-    this.add = () => {
-        return this.num1+this.num2;
-    }
-    this.subtract = () => {
-        return this.num1-this.num2;
-    }
-    this.multiply = () => {
-        return this.num1*this.num2;
-    }
-    this.divide = () => {
-        return this.num1/this.num2;
-    }
+//     this.add = () => {
+//         return this.num1+this.num2;
+//     }
+//     this.subtract = () => {
+//         return this.num1-this.num2;
+//     }
+//     this.multiply = () => {
+//         return this.num1*this.num2;
+//     }
+//     this.divide = () => {
+//         return this.num1/this.num2;
+//     }
 
-}
-var obj = new Calculator(5,10)
-console.log(obj.add())
-console.log(obj.subtract())
-console.log(obj.multiply())
-console.log(obj.divide())
+// }
+// var obj = new Calculator(5,10)
+// console.log(obj.add())
+// console.log(obj.subtract())
+// console.log(obj.multiply())
+// console.log(obj.divide())
 
 
-function Student(marks1, marks2) {
-    let _marks1 = marks1;
-    let _marks2 = marks2;
+// function Student(marks1, marks2) {
+//     let _marks1 = marks1;
+//     let _marks2 = marks2;
 
-    this.getMarks = function(num){
-        if(num==1){
-            return _marks1;
-        } 
-        else if(num==2){
-            return _marks2;
+//     this.getMarks = function(num){
+//         if(num==1){
+//             return _marks1;
+//         } 
+//         else if(num==2){
+//             return _marks2;
+//         }
+//     }
+//     this.getTotal = function(){
+//         return _marks1+_marks2;
+//     }
+// }
+
+// let Sid = new Student(90,95);
+// console.log(Sid.getMarks(1))
+// console.log(Sid.getTotal())
+
+class Product {
+    constructor(name, price, amount, madeIn){
+        var _name=name;
+        var _price=price;
+        var _amount = amount;
+        var _madeIn=madeIn;
+
+        this.getName=()=>{
+            console.log(_name);
         }
-    }
-    this.getTotal = function(){
-        return _marks1+_marks2;
+        this.getPrice=()=>{
+            console.log(_price);
+        }
+        this.getAmount=()=>{
+            console.log(_amount);
+        }
+        this.getMadeIn=()=>{
+            console.log(_madeIn);
+        }
+        this.setAmount=(num)=>{
+            _amount=num;
+        }
+        this.canSell=(num)=>{
+            _amount<num?console.log('Cannot Sell'):console.log('Can Sell');
+        }
+        this.sell=(num)=>{
+            if(_amount<num){
+                _amount+=num*2;
+
+            }
+            else{
+                _amount-=num;
+            }
+            console.log(_amount)
+        }
+
     }
 }
-
-let Sid = new Student(90,95);
-console.log(Sid.getMarks(1))
-console.log(Sid.getTotal())
-
+var product = new Product('Butter',50,10,'USA')
+product.getName()       
+product.getPrice()  
+product.getAmount() 
+product.getMadeIn() 
+product.canSell(9)  
+product.sell(15)    
+product.sell(8)
