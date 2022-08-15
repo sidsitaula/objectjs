@@ -188,17 +188,55 @@
 // const p1 = newProduct()
 
 
-const Person = {
-    name:"Amy",
-    age:28
+// const Person = {
+//     name:"Amy",
+//     age:28
+// }
+
+// const Teacher = {
+//     subject:"Maths",
+//     grade:8,
+// }
+
+
+// Person.__proto__ = Teacher
+// console.log(Person.subject);
+// console.log(Person.grade)
+
+
+function Shape(name, sides){
+    this.name=name;
+    this.sides=sides;
+
+    this.displayName=function(){
+        console.log(this.name)
+    }
 }
 
-const Teacher = {
-    subject:"Maths",
-    grade:8,
+function Triangle(a,b,c, name, sides){
+    this.a=a;
+    this.b=b;
+    this.c=c;
+    Shape.call(this, name, sides)
+    this.triangleType = ()=>{
+        if(this.a===this.b && this.a===this.c && this.b===this.c){
+            console.log('Equilateral')
+        }
+        else if(this.a!==this.b && this.a!==this.c && this.b!==this.c){
+            console.log('Scalene')
+        }else{
+            console.log('Iso')
+        }
+    }
 }
 
+Triangle.prototype=Object.create(Shape.prototype)
+Triangle.prototype.constructor = Triangle;
+const t1= new Triangle(1,1,1,'T1',3);
+const t2= new Triangle(1,2,3,'T2',3);
+const t3= new Triangle(1,2,1,'T3',3);
 
-Person.__proto__ = Teacher
-console.log(Person.subject);
-console.log(Person.grade)
+t1.displayName()
+t1.triangleType();
+t2.triangleType();
+t3.triangleType();
