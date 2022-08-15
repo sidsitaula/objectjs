@@ -140,49 +140,65 @@
 // product.sell(15)    
 // product.sell(8)
 
-class Product {
-    constructor(name, price, amount, madeIn, expiryDate, brand){
-        this.name=name;
-        this.price=price;
-        this.amount=amount;
-        this.madeIn=madeIn;
-        this.expiryDate=expiryDate;
-        this.brand=brand;
-    }
-    static checkExpiry(product1, product2){
-        let today = new Date()
-        let d1 = today - product1.expiryDate;
-        let d2 = today - product2.expiryDate;
-        let b1=d1>0;
-        let b2=d2>0;
-        if(b1 && !b2){
-            console.log(product1.brand)
-        }
-        else if(!b1 && b2){
-            console.log(product2.brand)
+// class Product {
+//     constructor(name, price, amount, madeIn, expiryDate, brand){
+//         this.name=name;
+//         this.price=price;
+//         this.amount=amount;
+//         this.madeIn=madeIn;
+//         this.expiryDate=expiryDate;
+//         this.brand=brand;
+//     }
+//     static checkExpiry(product1, product2){
+//         let today = new Date()
+//         let d1 = today - product1.expiryDate;
+//         let d2 = today - product2.expiryDate;
+//         let b1=d1>0;
+//         let b2=d2>0;
+//         if(b1 && !b2){
+//             console.log(product1.brand)
+//         }
+//         else if(!b1 && b2){
+//             console.log(product2.brand)
 
-        }
-        else if(!b1 && b2){
-            console.log(product2.brand)
-        }
-        else if(b1 && b2){
-            if(d1>d2){
-                console.log(product1.brand)
+//         }
+//         else if(!b1 && b2){
+//             console.log(product2.brand)
+//         }
+//         else if(b1 && b2){
+//             if(d1>d2){
+//                 console.log(product1.brand)
 
-            }
-            else if(d1<d2){
-                console.log(product2.brand)
+//             }
+//             else if(d1<d2){
+//                 console.log(product2.brand)
 
-            }
-            else if(d1==d2){
-                console.log(product1.brand, product2.brand)
+//             }
+//             else if(d1==d2){
+//                 console.log(product1.brand, product2.brand)
 
-            }
-        }
-        else{
-            console.log('neither')
-        }
-    }
+//             }
+//         }
+//         else{
+//             console.log('neither')
+//         }
+//     }
+// }
+
+// const p1 = newProduct()
+
+
+const Person = {
+    name:"Amy",
+    age:28
 }
 
-const p1 = newProduct()
+const Teacher = {
+    subject:"Maths",
+    grade:8,
+}
+
+
+Person.__proto__ = Teacher
+console.log(Person.subject);
+console.log(Person.grade)
